@@ -7,7 +7,7 @@ http://www.omdbapi.com/?apikey=74170e3b&s=101`;
 
 const Marathi = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [Mmovie, setMMovie] = useState([]);
+  const [movie, setMovie] = useState([]);
   const [error, setError] = useState({ show: "false", msg: "" });
 
   const getMovies = async (url) => {
@@ -17,7 +17,7 @@ const Marathi = () => {
       console.log(data);
       if (data.Response === "True") {
         setIsLoading(false);
-        setMMovie(data.Search);
+        setMovie(data.Search);
         // console.log("movie", Emovie);
       } else {
         setError({
@@ -47,10 +47,11 @@ const Marathi = () => {
         <h2 className="English-text">Top Marathi Dubbing</h2>
         <div className="slider-div">
           <Slider {...settings} className="English-slider">
-            {Mmovie.map((eitem) => {
+            {movie.map((eitem) => {
+              const { imdbID } = eitem;
               return (
                 <div className="English-div">
-                  <NavLink to="/DetailMovie">
+                  <NavLink to={`/DetailMovie/${imdbID}`}>
                     <img
                       className="English-poster"
                       src={eitem.Poster}

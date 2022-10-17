@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 
-const movie_url = `
+export const movie_url = `
 http://www.omdbapi.com/?apikey=74170e3b&s=English`;
 
 const Slider2 = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [Emovie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([]);
   const [error, setError] = useState({ show: "false", msg: "" });
 
   const getMovies = async (url) => {
@@ -46,7 +46,7 @@ const Slider2 = () => {
       <h2 className="English-text">Top English Pick</h2>
       <div className="slider-div">
         <Slider {...settings} className="English-slider">
-          {Emovie.map((eitem) => {
+          {movie.map((eitem) => {
             const { imdbID } = eitem;
             return (
               <div className="English-div">

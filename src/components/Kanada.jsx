@@ -7,7 +7,7 @@ http://www.omdbapi.com/?apikey=74170e3b&s=hindi`;
 
 const Kanada = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [Kmovie, setKMovie] = useState([]);
+  const [movie, setMovie] = useState([]);
   const [error, setError] = useState({ show: "false", msg: "" });
 
   const getMovies = async (url) => {
@@ -17,7 +17,7 @@ const Kanada = () => {
       console.log(data);
       if (data.Response === "True") {
         setIsLoading(false);
-        setKMovie(data.Search);
+        setMovie(data.Search);
         // console.log("movie", Emovie);
       } else {
         setError({
@@ -47,10 +47,11 @@ const Kanada = () => {
         <h2 className="English-text">Top Kanada Dubbing</h2>
         <div className="slider-div">
           <Slider {...settings} className="English-slider">
-            {Kmovie.map((eitem) => {
+            {movie.map((eitem) => {
+              const { imdbID } = eitem;
               return (
                 <div className="English-div">
-                  <NavLink to="/DetailMovie">
+                  <NavLink to={`/DetailMovie/${imdbID}`}>
                     <img
                       className="English-poster"
                       src={eitem.Poster}

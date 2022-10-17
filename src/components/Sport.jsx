@@ -7,7 +7,7 @@ http://www.omdbapi.com/?apikey=74170e3b&s=football`;
 
 const Sport = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [Pmovie, setPMovie] = useState([]);
+  const [movie, setMovie] = useState([]);
   const [error, setError] = useState({ show: "false", msg: "" });
 
   const getMovies = async (url) => {
@@ -17,7 +17,7 @@ const Sport = () => {
       console.log(data);
       if (data.Response === "True") {
         setIsLoading(false);
-        setPMovie(data.Search);
+        setMovie(data.Search);
         // console.log("movie", Emovie);
       } else {
         setError({
@@ -93,10 +93,11 @@ const Sport = () => {
         <h2 className="English-text">Premium Sport Top Pick </h2>
         <div className="slider-div">
           <Slider {...settings} className="English-slider">
-            {Pmovie.map((eitem) => {
+            {movie.map((eitem) => {
+              const { imdbID } = eitem;
               return (
                 <div className="English-div">
-                  <NavLink to="/DetailMovie">
+                  <NavLink to={`/DetailMovie/${imdbID}`}>
                     <img
                       className="English-poster"
                       src={eitem.Poster}

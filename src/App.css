@@ -177,3 +177,66 @@ div.channel-div {
   margin-top: 30px;
   margin-left: 30px;
 }
+
+/* =============================movie Detail page ================================ */
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4rem;
+}
+.text {
+  width: 700px;
+}
+.heading {
+  font-size: 50px;
+  color: white;
+  margin-top: 3rem;
+}
+.para-genre {
+  color: #9ab5b5;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.para-year {
+  color: #9ab5b5;
+  font-size: 17px;
+  font-weight: bold;
+}
+.para-discription {
+  margin-top: 1rem;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+.language {
+  margin-top: 1rem;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+.audio {
+  color: #9ab5b5;
+}
+.rating {
+  margin-top: 1rem;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+.poster {
+  height: 400px;
+  width: 500px;
+}
+.back {
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  padding: 10px 40px;
+  margin-left: 35rem;
+  background-color: transparent;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid white;
+  cursor: pointer;
+}
