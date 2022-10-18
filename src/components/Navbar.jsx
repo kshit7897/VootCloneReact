@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <>
       <div className="main-div">
@@ -20,14 +20,21 @@ const Navbar = () => {
         </div>
         <div className="right-navbar">
           <ul>
-            <input
-              className="input-search"
-              type="text"
-              placeholder="Search Here"
-            />
+            <NavLink to="/Main">
+              <input
+                onChange={(e) => {
+                  props.getvalue(e.target.value);
+                }}
+                className="input-search"
+                type="text"
+                placeholder="Search Here"
+              />
+            </NavLink>
             <i className="fa-solid fa-magnifying-glass"></i>
             <li>
-              <NavLink to="/">My Voot</NavLink>
+              <NavLink to="/" end>
+                My Voot
+              </NavLink>
             </li>
             <li>
               <NavLink to="/Premium">Premium</NavLink>

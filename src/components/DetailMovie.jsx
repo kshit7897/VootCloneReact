@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const movie_url = `
 http://www.omdbapi.com/?apikey=74170e3b&i=`;
@@ -55,14 +55,17 @@ const DetailMovie = () => {
               <span className="audio">Imdb Rating : </span> {movie.imdbRating}
             </p>
           </div>
-          <div className="btn">
-            <button className="back">Back</button>
-          </div>
         </div>
 
         <div>
           <img className="poster" src={movie.Poster} alt="voot" />
         </div>
+      </div>
+      <div className="btn">
+        <button className="Watch">Watch Now</button>
+        <NavLink to={"/"} className="back">
+          Go Back
+        </NavLink>
       </div>
     </>
   );

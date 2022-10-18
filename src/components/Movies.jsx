@@ -6,7 +6,6 @@ const movie_url = `
 http://www.omdbapi.com/?apikey=74170e3b&s=Marvel`;
 
 const Movies = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [movie, setMovie] = useState([]);
   const [error, setError] = useState({ show: "false", msg: "" });
 
@@ -16,7 +15,6 @@ const Movies = () => {
       const data = await response.json();
       console.log(data);
       if (data.Response === "True") {
-        setIsLoading(false);
         setMovie(data.Search);
         // console.log("movie", Emovie);
       } else {
@@ -93,16 +91,12 @@ const Movies = () => {
         <h2 className="English-text">Top Movies Range </h2>
         <div className="slider-div">
           <Slider {...settings} className="English-slider">
-            {movie.map((eitem) => {
-              const { imdbID } = eitem;
+            {movie.map((item) => {
+              const { imdbID } = item;
               return (
-                <div className="English-div">
+                <div className="English-div" key={item.id}>
                   <NavLink to={`/DetailMovie/${imdbID}`}>
-                    <img
-                      className="English-poster"
-                      src={eitem.Poster}
-                      alt="#"
-                    />
+                    <img className="English-poster" src={item.Poster} alt="#" />
                   </NavLink>
                 </div>
               );
